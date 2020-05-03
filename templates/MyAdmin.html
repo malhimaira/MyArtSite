@@ -1,0 +1,33 @@
+{% extends "MyBase.html" %}
+
+{% block a2 %}
+
+<div class = "blockL myReq">
+    <h1>SIGN IN</h1>
+    {% for message in get_flashed_messages() %}
+        {{ message }}<br/>
+    {% endfor %}
+    <form action="/ADMIN" method="post">
+         {{ form.csrf_token }}
+         <p>
+                {{form.username.label}} <br>
+                {{form.username(size=30)}}
+         </p>
+         <p>
+                {{form.password.label}} <br>
+                {{form.password(size=30)}}
+         </p>
+         <p>
+                {{form.submit()}}
+         </p>
+    </form>
+ <a href="FORGOT">FORGOT PASSWORD</a>
+</div>
+
+
+    <div class = "blockR myConts">
+        FOR ADMIN USE ONLY
+        <div class = "myconts1"> email: malhimaira@gmail.com</div>
+    </div>
+
+{% endblock %}

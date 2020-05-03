@@ -1,0 +1,58 @@
+{% extends "MyBase.html" %}
+
+{% block a2 %}
+
+     <div class = "blockL myReq" style="height: 400px; font-size: 10pt; background-color: floralwhite">
+         {% if current_user.is_authenticated %}
+             <h1>Welcome Admin!</h1>
+         {% else %}
+             <h1>Welcome </h1>
+         {% endif %}
+         <h6>List of Admin</h6>
+
+         {% for x in  auser%}
+         <ul style="float: right">
+             <li>{{ x }}</li>
+         </ul>
+        {% endfor %}
+         {% for x in  aname%}
+         <ul style="float: right">
+             <li>{{ x }}</li>
+         </ul>
+        {% endfor %}
+    </div>
+
+    <div class = "blockR myReq", style ="height: 500px">
+        <h1>POSTS</h1>
+        <table id ='ListName' border='1' style="font-size: 12pt; float: left">
+            <tr>
+                <th>Name</th>
+            </tr>
+            {% for name in cname %}
+            <tr>
+                <td>{{ name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table id ='ListEmail' border='1' style="font-size: 12pt; float: left">
+            <tr>
+                <th>Email</th>
+            </tr>
+            {% for email in cemail %}
+            <tr>
+                <td>{{ email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table id ='ListMessage' border='1' style="font-size: 12pt; float: left">
+            <tr>
+                <th>Message</th>
+            </tr>
+            {% for message in cmess %}
+            <tr>
+                <td height>{{ message }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
