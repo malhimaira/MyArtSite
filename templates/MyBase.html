@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maira Malhi</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/basestyle.css" />
+    <link rel="stylesheet" type="text/css" href="../static/Homestyle.css" />
+    <link rel="stylesheet" type="text/css" href="../static/PAINT.css" />
+    <link rel="stylesheet" type="text/css" href="../static/Pencil.css" />
+    <link rel="stylesheet" type="text/css" href="../static/INVENT.css" />
+    <link rel="stylesheet" type="text/css" href="../static/MixMed.css" />
+    <link rel="stylesheet" type="text/css" href="../static/Contacts.css" />
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+{% block a1 %}{% endblock %}
+
+<nav class = "container-fluid">
+    <div class="blockR">
+        <ul id = "myul">
+            <li><a class="active" href="HOME">HOME</a></li>
+            <li><a href="PAINT">PAINT</a></li>
+            <li><a href="PENCIL">PENCIL</a></li>
+            <li><a href="MIXEDMEDIA">MIXED MEDIA</a></li>
+            <li><a href="TIPSANDTUTORIALS">TIPS & TUTORIALS</a></li>
+            <li><a href="INVENTORY">INVENTORY</a></li>
+            <li><a href="https://www.pinterest.ca/mmhi99/paintings-and-drawings/" target="_blank">PINTEREST</a></li>
+            <li><a href="CONTACT">CONTACT</a></li>
+            <li><a href="ADMIN">ADMIN</a></li>
+        </ul>
+    </div>
+</nav>
+
+{% block a2 %}{% endblock %}
+
+<div class = "logs1">
+    {% if current_user.is_authenticated %}
+        ADMIN LOGGED
+    {% else %}
+       ADMIN
+    {% endif %}
+     <a href="/ADMIN">LOGIN</a>
+    <a href="logout">LOGOUT</a>
+</div>
+
+<div class = footer>
+MAIRA MALHI 2020©️
+</div>
+
+</body>
+</html>

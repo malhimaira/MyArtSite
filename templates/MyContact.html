@@ -1,0 +1,44 @@
+{% extends "MyBase.html" %}
+
+{% block a2 %}
+
+    <div class = "blockL myReq">
+        <form action = "/CONTACT" method = 'post'>
+            {{ form.csrf_token }}
+            <table>
+                <tr>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>{{ form.name.label }}</td> <td>{{ form.name }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.email.label }}</td>
+                    <td>{{ form.email }}</td> </tr>
+                <tr>
+                    <td>{{ form.message.label }}</td> <td>{{ form.message }}</td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <button type="submit">Send</button> <button type="reset">Clear</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class = "blockR myConts">
+    CONTACT
+    </br>
+    <a class = "myconts1" href="mailto:malhimaira@gmail.com?
+&subject=Inquiry/Question%20from%20(Please%20enter%20contact%20name)%20
+&body=This%20message%20is%20for%20Maira%20and%20her%20team">
+email directly: malhimaira@gmail.com</a>
+    </div>
+
+    <div class = "blockL floral">
+    </div>
+
+{% endblock %}

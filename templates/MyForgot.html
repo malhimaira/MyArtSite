@@ -1,0 +1,37 @@
+{% extends "MyBase.html" %}
+
+{% block a2 %}
+    <div class = "blockL myReq">
+    <h1>Forgot Password</h1>
+        {% for message in get_flashed_messages() %}
+        {{ message }}<br/>
+    {% endfor %}
+        <form action = "/FORGOT" method = 'post'>
+            {{ form.csrf_token }}
+            <table>
+                <tr>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>Username</td> <td>{{ form.usersname }}</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>{{ form.realname }}</td> </tr>
+                <tr>
+                    <td>Old Password</td> <td>{{ form.oldpass }}</td>
+                </tr>
+                <tr>
+                    <td>New Password</td> <td>{{ form.newpass }}</td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <button type="submit">Send</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}
