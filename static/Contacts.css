@@ -1,0 +1,39 @@
+.myConts{
+    font-family: Didot;
+    font-size:80pt;
+    font-style: italic;
+    height: 450px;
+    text-align: end;
+    background-color: floralwhite;
+}
+.myconts1{
+    font-family: Didot;
+    font-size:30pt;
+    font-style: unset;
+}
+
+.myReq{
+    font-family: Didot;
+    font-size:20pt;
+    font-style: italic;
+    height: 450px;
+    text-align: end;
+    background-color: aliceblue;
+}
+.myReq2{
+    font-family: Didot;
+    font-size:20pt;
+    font-style: italic;
+    height: 250px;
+    text-align: end;
+    background-color: honeydew;
+}
+
+.floral{
+    background-image: url("flower.jpg");
+    background-attachment: fixed;
+    height: 350px;
+    background-size: 50%;
+    overflow: hidden;
+}
+

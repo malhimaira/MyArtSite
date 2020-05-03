@@ -1,0 +1,96 @@
+/* Boat */
+.boat {
+    height:800px;
+    background-size: cover;
+    background-position: -350px;
+    background-image:url("myboat.JPG");
+}
+
+/* Boat Quote*/
+.b1 {
+    color: rgba(255, 240, 235, 0.59);
+    font-size:100pt;
+    font-family: Didot;
+    text-align: end;
+    overflow: hidden;
+}
+.b2{
+    color: rgba(255, 240, 235, 0.59);
+    font-size:40pt;
+    font-family: Didot;
+    font-style: italic;
+    text-align: end;
+    overflow: hidden;
+}
+
+/* Freida and I */
+.myname{
+    background-image: url("Kahlo-One.jpg");
+    background-attachment: fixed;
+    background-size: 55%;
+    background-position: -110px;
+    color: black;
+    font-size:100pt;
+    font-family: Didot;
+    text-align: end;
+    overflow: hidden;
+}
+
+.myname2{
+    color: navy;
+    font-size:40pt;
+    font-family: "American Typewriter";
+    text-align: end;
+    overflow: hidden;
+}
+
+/* Brushes*/
+.tb1{
+    background-image: url("mybrush.jpg");
+    background-attachment: fixed;
+    background-position: 200px;
+    background-size: 95%;
+
+    overflow: hidden;
+    height:380px;
+}
+.writes1{
+    font-family: Didot;
+    font-size: 17pt;
+    text-align: right;
+}
+.writes2{
+    font-style: italic;
+    font-family: Didot;
+    text-align: center;
+    font-size: 40pt;
+}
+/*Disney*/
+.dis{
+    background-image: url("disney.JPG");
+    background-size: 40%;
+    height: 130px;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+/*Flynn*/
+.flynn{
+    background-image: url("my Flynn’s.JPG");
+    background-attachment: fixed;
+    background-size: 40%;
+    background-position:10px bottom;
+    color: white;
+    font-size:75pt;
+    font-family: Didot;
+    text-align: end;
+    overflow: hidden;
+}
+
+/*Paint spots*/
+.spots{
+    background-image: url("paints.jpg");
+
+    height: 240px;
+    background-attachment: fixed;
+    overflow: hidden;
+}

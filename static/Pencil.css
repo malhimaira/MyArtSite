@@ -1,0 +1,28 @@
+/*PENCILS*/
+
+/* Pencil gradient*/
+.pcs{
+    background-image: url("gradient.jpg");
+    background-attachment: fixed;
+    background-position: 200px;
+    background-size: 95%;
+    color: orangered;
+    font-size:100pt;
+    font-family: Didot;
+    text-align: end;
+    overflow: hidden;
+    height:250px;
+}
+
+.pcs2{
+    background-image: url("gradient.jpg");
+    background-attachment: fixed;
+    background-position: 200px;
+    background-size: 95%;
+    color: orangered;
+    font-size:100pt;
+    font-family: Didot;
+    text-align: end;
+    overflow: hidden;
+    height:300px;
+}

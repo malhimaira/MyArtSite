@@ -1,0 +1,162 @@
+/*Navigation Bar*/
+#myul {
+    background-color: gainsboro;
+    margin: 0;
+    width: 100%;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    font-family: Didot;
+    font-size: larger;
+}
+
+li a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: lightgrey;
+    color: lightcoral;
+    text-decoration: none;
+}
+
+/* General LHS Text boxes*/
+.blockL{
+    width:40%;
+    float: left;
+    margin:1%;
+    background-attachment: fixed ;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* General RHS Text boxes*/
+.blockR{
+    width:56%;
+    float: right;
+    margin:1%;
+    overflow: hidden;
+}
+/* General Text boxes*/
+.block{
+    width:56%;
+    margin:1%;
+    background-color: gainsboro;
+    overflow: hidden;
+}
+/*NAVBAR BOX*/
+.blockN{
+    width:56%;
+    float: right;
+    overflow: hidden;
+}
+
+/*General Image*/
+.txtimg {
+    position: relative;
+    text-align: end;
+    color: black;
+    font-family:Didot;
+    font-size: 50pt;
+}
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+.dispimg{
+    opacity: 0.5;
+    filter: grayscale(50%);
+    position: center;
+}
+/*Caption in POPUP*/
+.mycaps{
+    font-family: Didot;
+    font-size:40pt;
+    font-style: italic;
+}
+
+/*Pop Up Images*/
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: auto auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 60%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+}
+.popup .close:hover {
+    color: cornflowerblue;
+}
+.popup .content {
+    max-height: 30%;
+    overflow: scroll;
+}
+
+
+.logs1 {
+    width: 56%;
+    margin: 1%;
+    float: right;
+    overflow: hidden;
+    background-color: gainsboro;
+    font-family: Didot;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: lightgrey;
+    color: lightcoral;
+    text-decoration: none;
+}
+
+/* Footer */
+.footer{
+    width: 56%;
+    margin: 1%;
+    float: right;
+    overflow: hidden;
+    background-color: lightgrey;
+    font-family: Didot;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}

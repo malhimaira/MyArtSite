@@ -1,0 +1,22 @@
+/*PAINTS*/
+.pnts{
+    background-image: url("paints2.JPG");
+    background-attachment: fixed;
+    background-position: 200px;
+    background-size: 95%;
+    color: yellow;
+    font-size:100pt;
+    font-family: Didot;
+    text-align: end;
+    overflow: hidden;
+    height:250px;
+}
+
+.pnts2{
+    background-image: url("paints2.JPG");
+    background-attachment: fixed;
+    background-size: 65%;
+    height:170px;
+}
+
+

@@ -1,0 +1,38 @@
+
+/* Add font to Table of Bootstrap*/
+.table{
+    font-family: Didot;
+}
+.tablecap{
+    font-family: Didot;
+    font-size: 20pt;
+    background-color: gainsboro;
+    text-align: end;
+}
+
+/*INVENTORY*/
+.inv{
+    background-image: url("invpen.jpg");
+    background-attachment: fixed;
+    background-position: 200px;
+    background-size: cover;
+    filter: grayscale(60%);
+    height:250px;
+}
+.invf{
+    color: aquamarine;
+    font-size:70pt;
+    font-family: Didot;
+    text-align: end;
+    overflow: hidden;
+}
+
+/*Brush*/
+.brrr{
+    background-image: url("bru.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 550px;
+    filter: grayscale(60%);
+    height:250px;
+}
