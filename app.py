@@ -1,12 +1,21 @@
-import csv
 from datetime import datetime
-
+import mysql.connector
+import os
 from flask import Flask, render_template, session, redirect, flash, url_for
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 from forms import SignInForm, ContactForm, ForgotPass
 
 app = Flask(__name__)
 app.secret_key = 'hello'
+
+maidb = mysql.connector.connect(
+  host="localhost",
+  user=os.environ["USERmai"],
+  password=os.environ["PASSmai"],
+  database = 'mydatabase'
+)
+
+mycursor = maidb.cursor()
 
 
 @app.route('/')
@@ -48,17 +57,15 @@ def tipstuts():
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
-        with open('data/MESSAGES.csv', 'a') as f:
-            writer = csv.writer(f)
-            writer.writerow([form.name.data, form.email.data, form.message.data])
-            return redirect(url_for('contact_response', name=form.name.data))
+        now = datetime.now()
+        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+
+        sql = "INSERT INTO contactmessages (time, name, emailaddress, message) VALUES (%s, %s, %s, %s)"
+        val = (dt_string, form.name.data, form.email.data, form.message.data)
+        mycursor.execute(sql, val)
+        maidb.commit()
+
     return render_template('MyContact.html', form=form)
-
-
-@app.route('/contact_response/<name>')
-def contact_response(name):
-    return render_template('MyContactSubmit.html', name=name)
-
 
 @app.route('/POSTS', methods=['GET', 'POST'])
 @login_required
@@ -68,31 +75,57 @@ def post():
     cmess = []
     auser = []
     aname = []
-    with open('data/MESSAGES.csv') as file:
-        reader = csv.reader(file)
-        for user in reader:
-            name = user[0]
-            cname.append(name)
-            email = user[1]
-            cemail.append(email)
-            mess = user[2]
-            cmess.append(mess)
-    with open('data/USERS.csv') as f:
-        reader2 = csv.reader(f)
-        for user2 in reader2:
-            username = user2[0]
-            auser.append(username)
-            name = user2[2]
-            aname.append(name)
+
+    mycursor.execute("SELECT time, name, emailaddress, message FROM contactmessages")
+
+    fetchedDt = mycursor.fetchall()
+    cnt =0
+    timestanp =''
+    for row in fetchedDt:
+        for elem in row:
+            if cnt==0:
+                timestamp = elem
+            if cnt==1:
+                cname.append(elem)
+            if cnt == 2:
+                cemail.append(elem)
+            if cnt == 3:
+                cmess.append(timestamp+' '+elem)
+            cnt +=1
+
+    mycursor.execute("SELECT name FROM admins")
+    fetchedDt = mycursor.fetchall()
+    for row in fetchedDt:
+        for elem in row:
+            auser.append(elem)
+
     return render_template('MyPosts.html', username=session.get('username'), cname=cname, cemail=cemail, cmess=cmess,
                            auser=auser, aname=aname)
 
 
 def check_pass(username, password):
-    with open('data/USERS.csv') as f:
-        for user in csv.reader(f):
-            if username == user[0] and password == user[1]:
+
+    mycursor.execute("SELECT name, pass FROM admins")
+
+    myresult = mycursor.fetchall()
+
+    truthChck =0
+    for row in myresult:
+        print(row)
+        cnt = 0
+        for elem in row:
+            print(elem)
+            if cnt == 0 and elem == username:
+                print("user ac")
+                truthChck +=1
+            elif cnt == 1 and elem == password:
+                print("passed ac")
+                truthChck +=1
+            if truthChck ==2:
                 return True
+            cnt +=1
+        truthChck = 0
+        cnt = 0
     return False
 
 
@@ -127,23 +160,23 @@ def admin():
     return render_template('MyAdmin.html', form=form)
 
 
-@app.route('/FORGOT', methods=['GET', 'POST'])
-def forgot():
-    form = ForgotPass()
-    if form.validate_on_submit():
-        if check_pass(form.usersname.data, form.oldpass.data):
-            with open('data/USERS.csv', 'a') as f:
-                writer = csv.writer(f)
-                writer.writerow([form.usersname.data, form.newpass.data, form.realname.data])
-                return redirect(url_for('forgotpage', name=form.realname.data))
-        else:
-            flash('Invalid Admin username/password')
-    return render_template('MyForgot.html', form=form)
-
-
-@app.route('/forgotpage/<name>')
-def forgotpage(name):
-    return render_template('MyForgotSubmit.html', name=name)
+# @app.route('/FORGOT', methods=['GET', 'POST'])
+# def forgot():
+#     form = ForgotPass()
+#     if form.validate_on_submit():
+#         if check_pass(form.usersname.data, form.oldpass.data):
+#             with open('data/USERS.csv', 'a') as f:
+#                 writer = csv.writer(f)
+#                 writer.writerow([form.usersname.data, form.newpass.data, form.realname.data])
+#                 return redirect(url_for('forgotpage', name=form.realname.data))
+#         else:
+#             flash('Invalid Admin username/password')
+#     return render_template('MyForgot.html', form=form)
+#
+#
+# @app.route('/forgotpage/<name>')
+# def forgotpage(name):
+#     return render_template('MyForgotSubmit.html', name=name)
 
 
 @app.route('/logout')

@@ -1,0 +1,3 @@
+/Site data/
+# mycursor.execute("CREATE TABLE contactmessages (time VARCHAR(255), name VARCHAR(255), emailaddress VARCHAR(255), message VARCHAR(255))")
+#mycursor.execute("CREATE TABLE admins (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), emailaddress VARCHAR(255), pass VARCHAR(255))")
